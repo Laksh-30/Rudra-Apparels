@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudra Apparels</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header class="main-header">
+
+        <div class="brand-logo">
+            <a href="index.html">
+                <img src="assets\images\Rudra.png"
+                    alt="Rudra Apparels Company Logo" class="logo-img">
+            </a>
+        </div>
+
+        <nav class="main-nav" id="main-nav">
+            <ul>
+                <li><a href="index.html" class="nav-link">About Us</a></li>
+                <li><a href="pages/about.html" class="nav-link">Home</a></li>
+                <li><a href="pages/products.html" class="nav-link">Products</a></li>
+                <li><a href="pages/more-collection.html" class="nav-link">More Collection</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="https://wa.me/c/919892390009" target="_blank" class="cta-button whatsapp-cta">
+                <i class="fab fa-whatsapp"></i> Chat with us
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle">
+                &#9776; </button>
+        </div>
+    </header>
+    <main>
+        <section class="hero-background">
+            <div class="hero-content">
+                <h2>Crafting Quality Uniforms with Pride and Precision since 1981.</h2>
+                <p>As leading manufacturers, we deliver premium, durable apparel for schools, corporate teams, and
+                    professional institutions across the region.</p>
+
+                <a href="pages/contact.html" class="cta-button hero-cta">Request a Custom Quote</a>
+            </div>
+        </section>
+
+        <section class="product-albums-section">
+            <h3 class="section-title">Explore Our Tailored Collections</h3>
+            <p class="section-subtitle">Click an album to view the full product line.</p>
+
+            <div class="albums-container">
+
+                <div class="album-card" onclick="window.location.href='pages/school-uniforms.html'">
+                    <div class="carousel" data-album="school">
+                        <div class="slide"><img src="assets/images/slide1.jpg" alt="School Uniform Slide 1"></div>
+                        <div class="slide"><img src="assets/images/slide2.jpg" alt="School Uniform Slide 2"></div>
+                        <div class="slide"><img src="assets/images/slide3.jpg" alt="School Uniform Slide 3"></div>
+                    </div>
+                    <h4>School Uniforms</h4>
+                    <span class="click-hint">View Collection &rarr;</span>
+                </div>
+
+                <div class="album-card" onclick="window.location.href='pages/corporate-uniforms.html'">
+                    <div class="carousel" data-album="corporate">
+                        <div class="slide"><img src="assets/images/slide4.jpg" alt="Corporate Uniform Slide 1"></div>
+                        <div class="slide"><img src="assets/images/slide5.jpg" alt="Corporate Uniform Slide 2"></div>
+                        <div class="slide"><img src="assets/images/slide6.jpg" alt="Corporate Uniform Slide 2"></div>
+                    </div>
+                    <h4>Corporate Uniforms</h4>
+                    <span class="click-hint">View Collection &rarr;</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- <section style="padding: 100px; text-align: center; background-color: var(--color-light-gray);">
+            <h3>[Content for Step 6: About Us/Mission will go here]</h3>
+        </section> -->
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+
+            <div class="footer-column footer-brand">
+                <h4 class="footer-heading">Rudra Apparels</h4>
+                <p class="brand-tagline">Quality Uniforms, Designed for Impact.</p>
+
+
+                <div class="social-links">
+
+                    <a href="https://www.instagram.com/rudra_apparel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank" class="social-icon-link instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/people/Jaikey-Garment/100088310345879/?mibextid=LQQJ4d"
+                        target="_blank" class="social-icon-link facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://whatsapp.com/channel/[YOUR_CHANNEL_ID_HERE]" target="_blank"
+                        class="cta-button channel-cta">
+                        <i class="fab fa-whatsapp"></i> Join WhatsApp Channel
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- <div class="footer-column">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul>
+                    <li><a href="pages/about.html" class="footer-link">About Us</a></li>
+                    <li><a href="pages/products.html" class="footer-link">Products</a></li>
+                    <li><a href="pages/contact.html" class="footer-link">Contact</a></li>
+                    <li><a href="pages/policy.html" class="footer-link">Privacy Policy</a></li>
+                </ul>
+            </div> -->
+
+            <div class="footer-column footer-contact">
+                <h4 class="footer-heading">Get in Touch</h4>
+
+                <p>📞 Contact: <span class="editable-content">+91 9892390009</span></p>
+                <p>📧 Email: <span class="editable-content">[EMAIL_ADDRESS_HERE]</span></p>
+
+                <div class="address-block">
+                    <p class="address-text">📍 Address: <span class="editable-content">20,23, Gaurav Industrial Estate,
+                            Bharat Coal Compound, Kale Marg, near Bail Bazar, Kamani,Kurla,
+                            Mumbai 400070,
+                            Maharashtra,
+                            India</span></p>
+
+                    <a href="https://maps.app.goo.gl/Lz4D5VPJiCZXsrKq6?g_st=ipc" target="_blank"
+                        class="map-button cta-button">
+                        View on Google Maps
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Rudra Apparels. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
+</body>
+
+</html>
