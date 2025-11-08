@@ -1,72 +1,82 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // =========================================================
-    // 1. HORIZONTAL TIMELINE SCROLL-TRACKING LOGIC
+    // 1. TIMELINE SHRINK/EXPAND ON SCROLL LOGIC (NEW)
+    // =========================================================
+    
+    const timelineWrapper = document.getElementById('timeline-wrapper');
+    let lastScrollTop = 0; // Tracks the last scroll position
+    
+    // We only need this logic if the element exists (i.e., not on mobile where it's hidden)
+    if (timelineWrapper) {
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            // Start shrinking/expanding after 100px of scroll
+            const scrollThreshold = 100; 
+
+            // Shrink Logic: Only shrink when scrolling DOWN and past the threshold
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                timelineWrapper.classList.add('timeline-scrolled');
+            } 
+            // Expand Logic: Expand when scrolling UP or if we are near the top
+            else if (scrollTop < lastScrollTop || scrollTop <= scrollThreshold) {
+                timelineWrapper.classList.remove('timeline-scrolled');
+            }
+
+            // Update the last scroll position for the next check
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+    }
+
+    
+    // =========================================================
+    // 2. HORIZONTAL TIMELINE SCROLL-TRACKING & CLICK LOGIC (Existing Code)
     // =========================================================
 
     const timelinePoints = document.querySelectorAll('.timeline-point');
-    // Get all story blocks that have a data-section-year attribute
     const storySections = document.querySelectorAll('.story-block[data-section-year]');
 
     if (storySections.length === 0) {
-        // Exit if no sections are found to track
         return; 
     }
 
-    /**
-     * Finds which story section is currently visible in the viewport 
-     * and updates the corresponding timeline point.
-     */
     function updateTimelineOnScroll() {
-        // Iterate backward to prioritize sections closer to the top of the viewport
         for (let i = storySections.length - 1; i >= 0; i--) {
             const section = storySections[i];
-            
-            // Get the section's position relative to the viewport
             const rect = section.getBoundingClientRect();
-            
-            // Define the trigger zone: the section is visible and its top is above 20% of the viewport height.
-            // Using 20% (e.g., 200px from top) prevents the highlight from changing too early.
-            const triggerZone = window.innerHeight * 0.2; 
+            // Adjusted trigger zone to accommodate the shrunken timeline height
+            const triggerZone = window.innerHeight * 0.25; 
 
             if (rect.top <= triggerZone && rect.bottom >= triggerZone) {
                 
-                // --- Found the active section ---
                 const activeYear = section.getAttribute('data-section-year');
                 
-                // 1. Remove 'active' class from ALL points
                 timelinePoints.forEach(point => point.classList.remove('active'));
 
-                // 2. Find and add 'active' class to the matching point
                 const activePoint = document.querySelector(`.timeline-point[data-year="${activeYear}"]`);
                 if (activePoint) {
                     activePoint.classList.add('active');
-                    
-                    // Optional: Scroll the timeline horizontally if it were wider than the screen
                     activePoint.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 }
-                
-                // Stop the loop once the currently visible section is found
                 return; 
             }
         }
     }
 
-    // Run the update function immediately on load and then on every scroll event
     updateTimelineOnScroll();
     window.addEventListener('scroll', updateTimelineOnScroll);
     
-    // Optional: Add click listeners to timeline points to jump to the section
+    // Click listeners to jump to the section
     timelinePoints.forEach(point => {
         point.addEventListener('click', function() {
             const year = this.getAttribute('data-year');
             const targetSection = document.querySelector(`.story-block[data-section-year="${year}"]`);
             
             if (targetSection) {
-                // Scroll the window to the target section, adjusted for the fixed header height (~80px)
-                const headerHeight = 90; 
+                // Now using the shrunken header/timeline height (approx 55px + padding)
+                const stickyHeight = 110; // Combined height of shrunken header (~55px) and shrunken timeline (~55px)
                 const elementPosition = targetSection.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                const offsetPosition = elementPosition + window.pageYOffset - stickyHeight;
                 
                 window.scrollTo({
                     top: offsetPosition,

@@ -46,72 +46,89 @@
 /* -------------------------------------- */
 
 .sticky-timeline-wrapper {
-    /* Make the timeline stick just below the header */
-    position: sticky;
-    top: 90px; /* Adjust based on your shrinking header's small height (~70px + margin) */
-    z-index: 10;
-    background-color: var(--color-white); 
-    border-bottom: 1px solid var(--color-light-gray);
-    padding: 20px 0;
-    margin-bottom: 50px;
-    /* Transition added for responsiveness (disabled on small screens) */
-    transition: all 0.3s ease-in-out; 
+    /* Make the timeline stick just below the header */
+    position: sticky;
+    /* The timeline will now stick immediately after the SHRUNK header */
+    top: 70px; 
+    z-index: 10;
+    background-color: var(--color-white); 
+    border-bottom: 1px solid var(--color-light-gray);
+    
+    /* Default size for timeline */
+    padding: 20px 0;
+    margin-bottom: 50px;
+    transition: all 0.3s ease-in-out; 
+}
+
+/* New Class: Applied when scrolling down (Shrink Effect) */
+.sticky-timeline-wrapper.timeline-scrolled {
+    padding: 10px 0; /* Reduced vertical padding */
+    top: 55px; /* Adjust sticky position for the shrunken header */
 }
 
 .timeline-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    padding: 0 40px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 40px; 
 }
 
 .timeline-line {
-    position: absolute;
-    top: 50%;
-    left: 40px;
-    right: 40px;
-    height: 4px;
-    background-color: var(--color-mid-gray);
-    z-index: 1;
-    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    right: 40px;
+    height: 4px;
+    background-color: var(--color-mid-gray);
+    z-index: 1;
+    transform: translateY(-50%);
 }
 
 .timeline-point {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    flex: 1; 
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1; 
 }
 
 .timeline-point::before {
-    content: '';
-    width: 16px;
-    height: 16px;
-    background-color: var(--color-mid-gray);
-    border: 3px solid var(--color-white);
-    border-radius: 50%;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-mid-gray);
+    border: 3px solid var(--color-white);
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Shrink the text slightly when scrolled */
+.timeline-scrolled .point-year,
+.timeline-scrolled .point-label {
+    font-size: 0.8rem;
+    transition: font-size 0.3s ease;
 }
 
 .point-year {
-    font-weight: 700;
-    color: var(--color-dark-gray);
-    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-dark-gray);
+    font-size: 0.9rem;
+    transition: font-size 0.3s ease;
 }
 
 .point-label {
-    font-size: 0.8rem;
-    color: var(--color-mid-gray);
-    text-align: center;
-    margin-top: 5px;
+    font-size: 0.8rem;
+    color: var(--color-mid-gray);
+    text-align: center;
+    margin-top: 5px;
+    transition: font-size 0.3s ease;
 }
 
 /* --- ACTIVE STATE (Managed by about_script.js) --- */
