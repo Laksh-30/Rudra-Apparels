@@ -1,233 +1,122 @@
 /* ========================================================= */
-/* --- ABOUT US PAGE: LAYOUT & TIMELINE STYLING --- */
+/* --- ABOUT US PAGE: LAYOUT & STORY BLOCK STYLING --- */
 /* (This style assumes global CSS is linked for variables/header) */
 /* ========================================================= */
 
 /* Utility container for inner page content */
 .padded-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
 }
 
 /* -------------------------------------- */
-/* HERO SECTION (Shorter Banner)          */
+/* HERO SECTION (Shorter Banner)          */
 /* -------------------------------------- */
 
 .page-hero {
-    min-height: 40vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--color-white); 
-    padding: 20px;
-    
-    /* Placeholder BG setup */
-    background: var(--color-dark-gray) url('../assets/images/about-hero-bg.jpg') no-repeat center center/cover;
-    background-blend-mode: multiply; 
-    background-color: rgba(43, 43, 43, 0.7); 
+    min-height: 40vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-white); 
+    padding: 20px;
+    
+    /* Placeholder BG setup */
+    background: var(--color-dark-gray) url('../assets/images/about-hero-bg.jpg') no-repeat center center/cover;
+    background-blend-mode: multiply; 
+    background-color: rgba(43, 43, 43, 0.7); 
 }
 
 .page-hero h1 {
-    font-size: 3rem; 
-    margin-bottom: 10px;
-    font-weight: 700;
+    font-size: 3rem; 
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .page-hero p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
 
 
 /* -------------------------------------- */
-/* STICKY TIMELINE STYLING                */
-/* -------------------------------------- */
-
-.sticky-timeline-wrapper {
-    /* Make the timeline stick just below the header */
-    position: sticky;
-    /* The timeline will now stick immediately after the SHRUNK header */
-    top: 70px; 
-    z-index: 10;
-    background-color: var(--color-white); 
-    border-bottom: 1px solid var(--color-light-gray);
-    
-    /* Default size for timeline */
-    padding: 20px 0;
-    margin-bottom: 50px;
-    transition: all 0.3s ease-in-out; 
-}
-
-/* New Class: Applied when scrolling down (Shrink Effect) */
-.sticky-timeline-wrapper.timeline-scrolled {
-    padding: 10px 0; /* Reduced vertical padding */
-    top: 55px; /* Adjust sticky position for the shrunken header */
-}
-
-.timeline-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    padding: 0 40px; 
-}
-
-.timeline-line {
-    position: absolute;
-    top: 50%;
-    left: 40px;
-    right: 40px;
-    height: 4px;
-    background-color: var(--color-mid-gray);
-    z-index: 1;
-    transform: translateY(-50%);
-}
-
-.timeline-point {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    flex: 1; 
-}
-
-.timeline-point::before {
-    content: '';
-    width: 16px;
-    height: 16px;
-    background-color: var(--color-mid-gray);
-    border: 3px solid var(--color-white);
-    border-radius: 50%;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
-}
-
-/* Shrink the text slightly when scrolled */
-.timeline-scrolled .point-year,
-.timeline-scrolled .point-label {
-    font-size: 0.8rem;
-    transition: font-size 0.3s ease;
-}
-
-.point-year {
-    font-weight: 700;
-    color: var(--color-dark-gray);
-    font-size: 0.9rem;
-    transition: font-size 0.3s ease;
-}
-
-.point-label {
-    font-size: 0.8rem;
-    color: var(--color-mid-gray);
-    text-align: center;
-    margin-top: 5px;
-    transition: font-size 0.3s ease;
-}
-
-/* --- ACTIVE STATE (Managed by about_script.js) --- */
-.timeline-point.active::before {
-    background-color: var(--color-dark-gray); /* Highlight color */
-    box-shadow: 0 0 0 4px rgba(43, 43, 43, 0.2);
-}
-
-.timeline-point.active .point-year,
-.timeline-point.active .point-label {
-    color: var(--color-dark-gray);
-    font-weight: 700;
-}
-
-.placeholder-end {
-    visibility: hidden; 
-}
-
-
-/* -------------------------------------- */
-/* STORY BLOCK STYLING (The content)      */
+/* STORY BLOCK STYLING (The content)      */
 /* -------------------------------------- */
 
 .story-block {
-    display: flex;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 80px auto; 
-    padding: 0 40px;
+    display: flex;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 80px auto; 
+    padding: 0 40px;
 }
 
 .story-content {
-    flex: 1;
-    padding: 0 30px;
+    flex: 1;
+    padding: 0 30px;
 }
 
 .story-content.image-right,
 .story-content.image-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .story-image {
-    width: 100%;
-    height: auto;
-    max-height: 450px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .story-title {
-    font-size: 2.2rem;
-    color: var(--color-dark-gray);
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--color-mid-gray);
-    padding-bottom: 10px;
+    font-size: 2.2rem;
+    color: var(--color-dark-gray);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-mid-gray);
+    padding-bottom: 10px;
 }
 
 .story-text {
-    line-height: 1.7;
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-    color: var(--color-mid-gray);
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: var(--color-mid-gray);
 }
 
 .reverse-layout {
-    flex-direction: row-reverse; 
+    flex-direction: row-reverse; 
 }
 
 .final-cta-about {
-    text-align: center;
-    padding: 60px 40px 80px;
+    text-align: center;
+    padding: 60px 40px 80px;
 }
 
 /* -------------------------------------- */
-/* RESPONSIVENESS (Mobile View)           */
+/* RESPONSIVENESS (Mobile View)           */
 /* -------------------------------------- */
 
 @media (max-width: 992px) {
-    .story-block,
-    .reverse-layout {
-        flex-direction: column; 
-        margin: 40px auto;
-        padding: 0 20px;
-    }
-    .story-content {
-        padding: 0;
-        margin-bottom: 30px;
-    }
-    .story-title {
-        text-align: center;
-    }
-    .story-image {
-        max-height: 350px;
-    }
-    .sticky-timeline-wrapper {
-        /* Hide the sticky timeline on small mobile screens where space is limited */
-        display: none; 
-    }
+    .story-block,
+    .reverse-layout {
+        flex-direction: column; 
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    .story-content {
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    .story-title {
+        text-align: center;
+    }
+    .story-image {
+        max-height: 350px;
+    }
 }
