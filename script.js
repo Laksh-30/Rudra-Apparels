@@ -1,60 +1,85 @@
-// =========================================================
-// 1. MOBILE MENU TOGGLE (Interactivity for Header)
-// =========================================================
+document.addEventListener('DOMContentLoaded', function() {
 
-// Get the hamburger button element and the navigation menu element
-const menuToggle = document.getElementById('menu-toggle');
-const mainNav = document.getElementById('main-nav');
-
-// Add an event listener that runs a function when the button is clicked
-menuToggle.addEventListener('click', function() {
-    // This line adds or removes the 'active' class on the navigation menu.
-    // The 'active' class in CSS is what makes the menu visible/invisible on mobile.
-    mainNav.classList.toggle('active');
-});
-
-
-// =========================================================
-// 2. PRODUCT CAROUSEL LOGIC (Dynamic Albums)
-// =========================================================
-
-/**
- * Initializes and starts the automatic slideshow for a single carousel element.
- * @param {HTMLElement} carouselElement The container holding the slides.
- */
-function startCarousel(carouselElement) {
-    // Finds all image slides within this specific carousel
-    const slides = carouselElement.querySelectorAll('.slide img');
-    let currentSlide = 0;
+    // =========================================================
+    // 1. MOBILE MENU TOGGLE (Interactivity for Header)
+    // =========================================================
     
-    // Check if there are any slides to prevent errors
-    if (slides.length === 0) {
-        return; 
+    // The existing mobile menu logic:
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+            // This adds or removes the 'active' class on the navigation menu.
+            mainNav.classList.toggle('active');
+        });
     }
 
-    // Function to handle the transition to the next image
-    const showNextSlide = () => {
-        // 1. Hide the current active slide by removing the 'active' class
-        slides.forEach(img => img.classList.remove('active'));
-        
-        // 2. Calculate the index of the next slide (loops back to 0 when end is reached)
-        currentSlide = (currentSlide + 1) % slides.length;
-        
-        // 3. Show the new current slide by adding the 'active' class
-        slides[currentSlide].classList.add('active');
-    };
-    
-    // Set the first slide to be visible immediately on load
-    slides[0].classList.add('active');
-    
-    // Start the automatic rotation timer (runs every 4000 milliseconds = 4 seconds)
-    setInterval(showNextSlide, 4000); 
-}
 
-// Get all elements with the class 'carousel' (i.e., all album slideshows)
-const carousels = document.querySelectorAll('.carousel');
+    // =========================================================
+    // 2. HEADER SHRINK/EXPAND ON SCROLL LOGIC (NEW CODE)
+    // =========================================================
+    
+    const header = document.querySelector('.main-header');
+    let lastScrollTop = 0; // Tracks the last scroll position
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        // Start shrinking/expanding after 100px of scroll
+        const scrollThreshold = 100; 
 
-// Loop through each carousel found and start its slideshow independently
-carousels.forEach(carousel => {
-    startCarousel(carousel);
-});
+        // Shrink Logic: Only shrink when scrolling DOWN and past the threshold
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+            header.classList.add('header-scrolled');
+        } 
+        // Expand Logic: Expand when scrolling UP or if we are near the top
+        else if (scrollTop < lastScrollTop || scrollTop <= scrollThreshold) {
+            header.classList.remove('header-scrolled');
+        }
+
+        // Update the last scroll position for the next check
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+
+    // =========================================================
+    // 3. PRODUCT CAROUSEL LOGIC (Existing Code)
+    // =========================================================
+    
+    /**
+     * Initializes and starts the automatic slideshow for a single carousel element.
+     * @param {HTMLElement} carouselElement The container holding the slides.
+     */
+    function startCarousel(carouselElement) {
+        const slides = carouselElement.querySelectorAll('.slide img');
+        let currentSlide = 0;
+        
+        if (slides.length === 0) {
+            return; 
+        }
+
+        const showNextSlide = () => {
+            // Hide the current active slide
+            slides.forEach(img => img.classList.remove('active'));
+            
+            // Calculate the index of the next slide
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Show the new current slide
+            slides[currentSlide].classList.add('active');
+        };
+        
+        // Set the first slide to be visible immediately on load
+        slides[0].classList.add('active');
+        
+        // Start the automatic rotation timer (runs every 4000 milliseconds = 4 seconds)
+        setInterval(showNextSlide, 4000); 
+    }
+
+    // Get all carousels and start them
+    const carousels = document.querySelectorAll('.carousel');
+    carousels.forEach(carousel => {
+        startCarousel(carousel);
+    });
+
+}); // End of DOMContentLoaded
