@@ -445,114 +445,173 @@ ul {
 
 /* --- ABOUT US PAGE SPECIFIC STYLING --- */
 
-/* Utility container for inner page content */
-.padded-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 40px;
+/* --- ABOUT US PAGE: ADVANCED STYLING (Timeline and Story Blocks) --- */
+
+/* -------------------------------------- */
+/* 1. STICKY TIMELINE STYLING             */
+/* -------------------------------------- */
+
+.sticky-timeline-wrapper {
+    /* Make the timeline stick just below the header */
+    position: sticky;
+    top: 90px; /* Adjust based on your header's height (Header is ~80px) */
+    z-index: 10;
+    background-color: var(--color-white); /* White background ensures visibility */
+    border-bottom: 1px solid var(--color-light-gray);
+    padding: 20px 0;
+    margin-bottom: 50px;
 }
 
-/* Page Hero (similar to main hero but smaller) */
-.page-hero {
-    min-height: 40vh; /* Shorter than homepage hero */
+.timeline-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 40px; 
+}
+
+.timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    right: 40px;
+    height: 4px;
+    background-color: var(--color-mid-gray);
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.timeline-point {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1; /* Distribute points evenly */
+}
+
+.timeline-point::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-mid-gray);
+    border: 3px solid var(--color-white);
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.point-year {
+    font-weight: 700;
+    color: var(--color-dark-gray);
+    font-size: 0.9rem;
+}
+
+.point-label {
+    font-size: 0.8rem;
+    color: var(--color-mid-gray);
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* --- ACTIVE STATE (To be managed by JavaScript scroll-tracking) --- */
+.timeline-point.active::before {
+    background-color: var(--color-dark-gray); /* Highlight color */
+    box-shadow: 0 0 0 4px rgba(43, 43, 43, 0.2);
+}
+
+.timeline-point.active .point-year,
+.timeline-point.active .point-label {
+    color: var(--color-dark-gray);
+    font-weight: 700;
+}
+
+.placeholder-end {
+    visibility: hidden; /* Use this point to stretch the line to the end */
+}
+
+
+/* -------------------------------------- */
+/* 2. STORY BLOCK STYLING                 */
+/* -------------------------------------- */
+
+.story-block {
+    display: flex;
+    align-items: flex-start; /* Align content to the top */
+    max-width: 1200px;
+    margin: 80px auto; 
+    padding: 0 40px;
+}
+
+.story-content {
+    flex: 1;
+    padding: 0 30px;
+}
+
+.story-content.image-right,
+.story-content.image-left {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    color: var(--color-white); 
-    padding: 20px;
-    /* Generic default styling, specific image will be set by .about-hero */
-    background: var(--color-dark-gray) no-repeat center center/cover;
-    background-blend-mode: multiply; 
-    background-color: rgba(43, 43, 43, 0.7); 
 }
 
-.about-hero {
-    /* Set a dedicated, professional background image for the About page here */
-    /* background-image: url('../assets/images/about-page-bg.jpg'); */
-}
-
-.page-hero h1 {
-    font-size: 3rem; 
-    margin-bottom: 10px;
-}
-
-.page-hero p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-/* Mission & Values Layout */
-.about-section {
-    background-color: var(--color-light-gray); /* Light gray background for contrast */
-}
-
-.section-heading {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--color-dark-gray);
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.two-column-layout {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start; /* Aligns content to the top */
-}
-
-.mission-text-block {
-    flex: 2; /* Takes up 2/3 of the space */
-}
-
-.mission-text-block h3 {
-    font-size: 1.8rem;
-    color: var(--color-dark-gray);
-    margin-top: 15px;
-    margin-bottom: 10px;
-}
-
-.mission-text-block p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-.mission-image-block {
-    flex: 1; /* Takes up 1/3 of the space */
-    position: sticky; /* Keeps the image visible while scrolling the text */
-    top: 100px; /* Position below the fixed header */
-}
-
-.page-image {
+.story-image {
     width: 100%;
     height: auto;
+    max-height: 450px;
+    object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Team Section (Placeholder) */
-.team-section {
-    background-color: var(--color-white);
-    text-align: center;
+.story-title {
+    font-size: 2.2rem;
+    color: var(--color-dark-gray);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-mid-gray);
+    padding-bottom: 10px;
 }
-.section-subtext {
+
+.story-text {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
     color: var(--color-mid-gray);
-    margin-bottom: 40px;
+}
+
+.reverse-layout {
+    flex-direction: row-reverse; /* Reverses the order for Image Left, Text Right */
+}
+
+.final-cta-about {
+    text-align: center;
+    padding: 60px 40px 80px;
 }
 
 /* --- RESPONSIVENESS --- */
-@media (max-width: 992px) {
-    .two-column-layout {
-        flex-direction: column;
+@media (max-width: 850px) {
+    .story-block,
+    .reverse-layout {
+        flex-direction: column; /* Stacks text and image vertically */
+        margin: 40px auto;
+        padding: 0 20px;
     }
-    .mission-image-block {
-        order: -1; /* Puts image above text on mobile */
-        width: 100%;
-        position: static; /* Disable sticky on mobile */
+    .story-content {
+        padding: 0;
         margin-bottom: 30px;
     }
-    .page-hero h1 {
-        font-size: 2.5rem;
+    .story-title {
+        text-align: center;
+    }
+    .story-image {
+        max-height: 350px;
+    }
+    
+    .sticky-timeline-wrapper {
+        display: none; /* Hide the sticky timeline on small mobile screens */
     }
 }
