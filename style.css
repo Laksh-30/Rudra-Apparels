@@ -440,3 +440,119 @@ ul {
     margin-right: 8px;
     font-size: 1.1rem; /* Consistent icon size */
 }
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+
+/* --- ABOUT US PAGE SPECIFIC STYLING --- */
+
+/* Utility container for inner page content */
+.padded-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+/* Page Hero (similar to main hero but smaller) */
+.page-hero {
+    min-height: 40vh; /* Shorter than homepage hero */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-white); 
+    padding: 20px;
+    /* Generic default styling, specific image will be set by .about-hero */
+    background: var(--color-dark-gray) no-repeat center center/cover;
+    background-blend-mode: multiply; 
+    background-color: rgba(43, 43, 43, 0.7); 
+}
+
+.about-hero {
+    /* Set a dedicated, professional background image for the About page here */
+    /* background-image: url('../assets/images/about-page-bg.jpg'); */
+}
+
+.page-hero h1 {
+    font-size: 3rem; 
+    margin-bottom: 10px;
+}
+
+.page-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Mission & Values Layout */
+.about-section {
+    background-color: var(--color-light-gray); /* Light gray background for contrast */
+}
+
+.section-heading {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-dark-gray);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.two-column-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; /* Aligns content to the top */
+}
+
+.mission-text-block {
+    flex: 2; /* Takes up 2/3 of the space */
+}
+
+.mission-text-block h3 {
+    font-size: 1.8rem;
+    color: var(--color-dark-gray);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.mission-text-block p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.mission-image-block {
+    flex: 1; /* Takes up 1/3 of the space */
+    position: sticky; /* Keeps the image visible while scrolling the text */
+    top: 100px; /* Position below the fixed header */
+}
+
+.page-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Team Section (Placeholder) */
+.team-section {
+    background-color: var(--color-white);
+    text-align: center;
+}
+.section-subtext {
+    color: var(--color-mid-gray);
+    margin-bottom: 40px;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 992px) {
+    .two-column-layout {
+        flex-direction: column;
+    }
+    .mission-image-block {
+        order: -1; /* Puts image above text on mobile */
+        width: 100%;
+        position: static; /* Disable sticky on mobile */
+        margin-bottom: 30px;
+    }
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+}
