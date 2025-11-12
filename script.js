@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // =========================================================
-    // 2. HEADER SHRINK/EXPAND ON SCROLL LOGIC (NEW CODE)
+    // 2. HEADER SHRINK/EXPAND ON SCROLL LOGIC
     // =========================================================
     
     const header = document.querySelector('.main-header');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // =========================================================
-    // 3. PRODUCT CAROUSEL LOGIC (Existing Code)
+    // 3. PRODUCT CAROUSEL LOGIC 
     // =========================================================
     
     /**
@@ -81,5 +81,63 @@ document.addEventListener('DOMContentLoaded', function() {
     carousels.forEach(carousel => {
         startCarousel(carousel);
     });
+
+    
+    // =========================================================
+    // 4. CONTACT FORM STATUS HANDLER (NEW CODE FOR MESSAGES)
+    // =========================================================
+
+    /**
+     * Function to display a success or error message after form submission,
+     * based on the URL query parameters set by the backend.
+     */
+    function handleContactFormStatus() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        const messageContainer = document.getElementById('form-message-status');
+
+        // Exit if the message container doesn't exist or no status is found
+        if (!messageContainer || !status) {
+            return; 
+        }
+
+        let messageHTML = '';
+        let bgColor = '';
+        let textColor = '';
+
+        if (status === 'success') {
+            messageHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We will be in touch shortly.';
+            bgColor = '#e6ffe6'; // Light green background
+            textColor = '#006400'; // Dark green text
+        } else if (status === 'failure') {
+            messageHTML = '<i class="fas fa-exclamation-triangle"></i> Error: Message failed to send. Please check your details or try contacting us via WhatsApp.';
+            bgColor = '#ffe6e6'; // Light red background
+            textColor = '#cc0000'; // Dark red text
+        } else if (status === 'error') {
+            // Used when fields are missing (redirected from server.js)
+            messageHTML = '<i class="fas fa-times-circle"></i> Validation Error: Please fill in all required fields.';
+            bgColor = '#ffeedd'; // Light orange background
+            textColor = '#cc6600'; // Dark orange text
+        }
+
+        if (messageHTML) {
+            // Apply inline styles and insert the message
+            messageContainer.innerHTML = `
+                <p style="padding: 15px; border-radius: 4px; border: 1px solid ${textColor}; background-color: ${bgColor}; color: ${textColor}; font-weight: 600;">
+                    ${messageHTML}
+                </p>
+            `;
+            
+            // Clear the query parameters from the URL after a short delay
+            setTimeout(() => {
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.replaceState({ path: newUrl }, '', newUrl);
+            }, 5000); 
+        }
+    }
+
+    // Execute the status checker when the page loads
+    handleContactFormStatus();
+
 
 }); // End of DOMContentLoaded
