@@ -592,3 +592,168 @@ ul {
         transform: rotate(360deg);
     }
 }
+
+/* ---------------------------------------------------- */
+/* MORE COLLECTION PAGE STYLING (Category Grid & Layout) */
+/* ---------------------------------------------------- */
+
+/* Ensure content is pushed down past the fixed header */
+.collection-hero-section {
+    text-align: center;
+    padding-top: 150px; 
+    padding-bottom: 40px;
+    background-color: var(--color-light-gray); /* Match the background of the category grid */
+}
+
+.collection-hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* --- Category Grid Container --- */
+
+.category-grid-container-collection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 30px;
+    padding: 60px 40px;
+    background-color: var(--color-light-gray);
+}
+
+.collection-card-link {
+    /* Required to make the link block-level and inherit size */
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    max-width: 300px; /* Card size for 3-4 items per row on wider screens */
+    transition: transform 0.3s;
+}
+
+.collection-card-link:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.category-card-collection {
+    width: 100%;
+    height: 300px; 
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* --- Image Carousel for Cards --- */
+
+.card-images-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute; /* Stack images on top of each other */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-img.active {
+    opacity: 1; /* Only the active image is visible */
+}
+
+/* --- Card Overlay Content --- */
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+    color: var(--color-white);
+    z-index: 2;
+}
+
+.card-overlay h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+/* The CTA Link Style (Reusing from products page) */
+.cta-link {
+    color: var(--color-primary-light); 
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-primary-light);
+    padding-bottom: 2px;
+}
+
+/* --- Product Collection Display (Grid Layout) --- */
+
+.product-collection {
+    padding: 60px 40px; 
+}
+
+.collection-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+.product-item {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    font-size: 0.95rem;
+    color: var(--color-dark-gray);
+    font-weight: 600;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .collection-card-link {
+        max-width: 45%; /* Two cards per row on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .collection-hero-section h1 {
+        font-size: 2.2rem;
+    }
+    .collection-card-link {
+        max-width: 100%; /* Full width cards on mobile */
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}

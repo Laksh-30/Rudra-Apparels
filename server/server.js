@@ -24,15 +24,18 @@ app.use(express.static(path.join(__dirname, '..')));
 
 
 // =========================================================
-// 4. CONTACT FORM API ROUTE (POST)
+// 4. CONTACT FORM API ROUTE (POST) - MODIFIED FOR ASYNC/JSON
 // =========================================================
 app.post('/api/contact', async (req, res) => {
     // Extract data sent from the HTML form
     const { name, email, subject, message } = req.body;
 
     if (!name || !email || !subject || !message) {
-        // Redirect if fields are missing. Use 'back' to maintain local URL context.
-        return res.redirect('back?status=error'); 
+        // FIX 1: Return JSON error status instead of redirect
+        return res.status(400).json({ 
+            status: 'failure', // The status string your JavaScript looks for
+            message: 'Validation Error: Please fill in all required fields.' 
+        }); 
     }
 
     // A. Setup Nodemailer Transporter
@@ -40,14 +43,15 @@ app.post('/api/contact', async (req, res) => {
         service: 'gmail',
         auth: {
             user: process.env.EMAIL_USER, 
-            pass: process.env.EMAIL_PASS // IMPORTANT: Use a Gmail App Password
+            pass: process.env.EMAIL_PASS
         }
     });
 
     // B. Setup Email Content
     const mailOptions = {
         from: `"${name}" <${email}>`, 
-        to: process.env.RECIPIENT_EMAIL || 'your-business-email@example.com', // Where you receive the email
+        // Use the environment variable for the recipient email
+        to: process.env.RECIPIENT_EMAIL || 'your-business-email@example.com', 
         subject: `[Rudra Inquiry] ${subject}`,
         html: `
             <h3>New Contact Form Submission</h3>
@@ -65,14 +69,17 @@ app.post('/api/contact', async (req, res) => {
         await transporter.sendMail(mailOptions);
         console.log(`Email sent from ${email} regarding: ${subject}`);
         
-        // FIX: Redirect using 'back' to prevent the 'Page Not Found' error
-        res.redirect('/index.html?status=success'); 
+        // FIX 2: Return JSON success status instead of redirect
+        res.json({ status: 'success', message: 'Email sent successfully!' });
         
     } catch (error) {
         console.error('Error sending email:', error);
         
-        // FIX: Redirect using 'back' for failure too
-        res.redirect('/index.html?status=failure');
+        // FIX 3: Return JSON failure status instead of redirect
+        res.status(500).json({ 
+            status: 'failure', 
+            message: 'Internal server error. Failed to send email.' 
+        });
     }
 });
 

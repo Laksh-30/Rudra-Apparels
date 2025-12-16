@@ -83,61 +83,69 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     
+    // // =========================================================
+    // 4. ASYNCHRONOUS CONTACT FORM HANDLER (NEW CODE)
     // =========================================================
-    // 4. CONTACT FORM STATUS HANDLER (NEW CODE FOR MESSAGES)
-    // =========================================================
+    
+    const form = document.getElementById('contactForm');
+    // NOTE: This targets the ID you added in the HTML: id="form-status-message"
+    const statusMessageDiv = document.getElementById('form-status-message'); 
 
-    /**
-     * Function to display a success or error message after form submission,
-     * based on the URL query parameters set by the backend.
-     */
-    function handleContactFormStatus() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const status = urlParams.get('status');
-        const messageContainer = document.getElementById('form-message-status');
+    if (form) {
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Stop the default page reload
 
-        // Exit if the message container doesn't exist or no status is found
-        if (!messageContainer || !status) {
-            return; 
-        }
-
-        let messageHTML = '';
-        let bgColor = '';
-        let textColor = '';
-
-        if (status === 'success') {
-            messageHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We will be in touch shortly.';
-            bgColor = '#e6ffe6'; // Light green background
-            textColor = '#006400'; // Dark green text
-        } else if (status === 'failure') {
-            messageHTML = '<i class="fas fa-exclamation-triangle"></i> Error: Message failed to send. Please check your details or try contacting us via WhatsApp.';
-            bgColor = '#ffe6e6'; // Light red background
-            textColor = '#cc0000'; // Dark red text
-        } else if (status === 'error') {
-            // Used when fields are missing (redirected from server.js)
-            messageHTML = '<i class="fas fa-times-circle"></i> Validation Error: Please fill in all required fields.';
-            bgColor = '#ffeedd'; // Light orange background
-            textColor = '#cc6600'; // Dark orange text
-        }
-
-        if (messageHTML) {
-            // Apply inline styles and insert the message
-            messageContainer.innerHTML = `
-                <p style="padding: 15px; border-radius: 4px; border: 1px solid ${textColor}; background-color: ${bgColor}; color: ${textColor}; font-weight: 600;">
-                    ${messageHTML}
-                </p>
+            // 1. Show the "Submitting..." spinner
+            statusMessageDiv.innerHTML = `
+                <div class="loading-spinner">
+                    Submitting...
+                </div>
             `;
-            
-            // Clear the query parameters from the URL after a short delay
-            setTimeout(() => {
-                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-                window.history.replaceState({ path: newUrl }, '', newUrl);
-            }, 5000); 
-        }
+
+            const formData = new FormData(form);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+            try {
+                // Send data to your Node.js server
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formObject)
+                });
+                
+                // Server should respond with JSON: { status: 'success' } or { status: 'failure' }
+                const result = await response.json(); 
+
+                // 2. Handle Success or Failure
+                if (result.status === 'success') {
+                    statusMessageDiv.innerHTML = `
+                        <p class="success-message">
+                            ✅ Your message has been submitted. We will connect with you shortly.
+                        </p>
+                    `;
+                    form.reset(); // Clear the form fields
+                } else {
+                    statusMessageDiv.innerHTML = `
+                        <p class="error-message">
+                            ❌ Submission failed. Please try again later or chat with us on WhatsApp.
+                        </p>
+                    `;
+                }
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                statusMessageDiv.innerHTML = `
+                    <p class="error-message">
+                        ❌ A connection error occurred. Please try again later.
+                    </p>
+                `;
+            }
+        });
     }
 
-    // Execute the status checker when the page loads
-    handleContactFormStatus();
-
-
-}); // End of DOMContentLoaded
+}); // End of DOMContentLoaded (KEEP THIS)
