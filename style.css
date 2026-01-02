@@ -293,7 +293,7 @@ ul {
 .carousel {
     position: relative;
     width: 100%;
-    height: 300px; /* Fixed height for consistent look */
+     height: clamp(220px, 50vw, 320px); /* Fixed height for consistent look */
     overflow: hidden; /* Crucial: Hides images that are not the current slide */
 }
 
@@ -591,4 +591,300 @@ ul {
     to {
         transform: rotate(360deg);
     }
+}
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .main-header {
+        padding: 12px 16px;
+    }
+
+    .logo-img {
+        height: 34px;
+    }
+
+    .cta-button.whatsapp-cta {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+    }
+}
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 10px;
+    }
+
+    .hero-background h2 {
+        font-size: 2rem;
+        line-height: 1.25;
+    }
+
+    .hero-background p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .hero-cta {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 60px 20px;
+    }
+
+    #contactForm {
+        padding: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* prevents iOS zoom */
+    }
+}
+.why-us-section {
+    padding: 80px 40px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.why-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.why-card i {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--color-dark-gray);
+}
+
+.why-card h4 {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-cta {
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        z-index: 999;
+    }
+    @media (max-width: 768px) {
+
+    .why-card i {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+
+    .why-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+        font-weight: 600;
+    }
+
+    .why-card p {
+        font-size: 0.95rem;
+        color: #555;
+        max-width: 90%;
+        line-height: 1.6;
+    }
+}
+
+}
+/* ================= CAPABILITIES ================= */
+
+.capabilities-section {
+    padding: 70px 40px 50px; /* ↓ reduced bottom padding */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.capability-intro {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #777;
+    margin-bottom: 40px; /* ↓ was 60 */
+}
+
+.capability-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 60px; /* ↓ was 100 (BIG FIX) */
+}
+
+/* Remove extra margin from LAST block */
+.capability-block:last-child {
+    margin-bottom: 0;
+}
+
+.capability-block.reverse {
+    direction: rtl;
+}
+
+.capability-block.reverse * {
+    direction: ltr;
+}
+
+.capability-text h3 {
+    font-size: 2.4rem;
+    margin-bottom: 12px; /* slight tighten */
+}
+
+.capability-text p {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 420px;
+    margin-bottom: 18px;
+}
+
+.capability-text a {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.capability-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+
+/* ================= ENQUIRY ================= */
+
+.enquiry-section {
+    padding: 60px 40px 90px; /* ↓ reduced top padding */
+    background-color: #fff;
+}
+
+.enquiry-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* LEFT CONTENT */
+.enquiry-intro h2 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+}
+
+.enquiry-intro p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 25px;
+    max-width: 420px;
+}
+
+.enquiry-points {
+    list-style: none;
+    padding: 0;
+}
+
+.enquiry-points li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+
+/* FORM */
+.enquiry-form {
+    background: #fafafa;
+    padding: 36px; /* ↓ slightly tighter */
+    border-radius: 6px;
+    border: 1px solid #e5e5e5;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+}
+
+.enquiry-form textarea {
+    resize: none;
+    margin-bottom: 18px;
+}
+
+.enquiry-form button {
+    width: auto;
+    padding: 12px 30px;
+}
+@media (max-width: 768px) {
+    .capabilities-section {
+        padding: 50px 20px 40px;
+    }
+
+    .capability-block {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    .capability-image img {
+        height: 260px;
+    }
+
+    .enquiry-section {
+        padding: 50px 20px 70px;
+    }
+
+    .enquiry-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.section-divider {
+    padding: 40px 40px; /* was too tall */
+    text-align: center;
+}
+
+.section-divider p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.section-divider p::before,
+.section-divider p::after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: #ccc;
+    margin: 16px auto;
 }

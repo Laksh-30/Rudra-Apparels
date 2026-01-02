@@ -52,78 +52,114 @@
                 <a href="pages/contact.html" class="cta-button hero-cta">Request a Custom Quote</a>
             </div>
         </section>
+        <section class="why-us-section">
+    <h3 class="section-title">Why Choose Rudra Apparels</h3>
+    <div class="why-us-grid">
 
-        <section class="product-albums-section">
-            <h3 class="section-title">Explore Our Tailored Collections</h3>
-            <p class="section-subtitle">Click an album to view the full product line.</p>
+        <div class="why-card">
+            <i class="fa-solid fa-award"></i>
+            <h4>Since 1981</h4>
+            <p>Over four decades of manufacturing excellence and trusted partnerships.</p>
+        </div>
 
-            <div class="albums-container">
+        <div class="why-card">
+            <i class="fa-solid fa-industry"></i>
+            <h4>In-House Manufacturing</h4>
+            <p>Complete quality control from fabric selection to final stitching.</p>
+        </div>
 
-                <div class="album-card" onclick="window.location.href='pages/school-uniforms.html'">
-                    <div class="carousel" data-album="school">
-                        <div class="slide"><img src="assets/images/slide1.jpg" alt="School Uniform Slide 1"></div>
-                        <div class="slide"><img src="assets/images/slide2.jpg" alt="School Uniform Slide 2"></div>
-                        <div class="slide"><img src="assets/images/slide3.jpg" alt="School Uniform Slide 3"></div>
-                    </div>
-                    <h4>School Uniforms</h4>
-                    <span class="click-hint">View Collection &rarr;</span>
-                </div>
+        <div class="why-card">
+            <i class="fa-solid fa-shirt"></i>
+            <h4>Custom Designs</h4>
+            <p>Tailored uniforms aligned with your institution’s identity.</p>
+        </div>
 
-                <div class="album-card" onclick="window.location.href='pages/corporate-uniforms.html'">
-                    <div class="carousel" data-album="corporate">
-                        <div class="slide"><img src="assets/images/slide4.jpg" alt="Corporate Uniform Slide 1"></div>
-                        <div class="slide"><img src="assets/images/slide5.jpg" alt="Corporate Uniform Slide 2"></div>
-                        <div class="slide"><img src="assets/images/slide6.jpg" alt="Corporate Uniform Slide 2"></div>
-                    </div>
-                    <h4>Corporate Uniforms</h4>
-                    <span class="click-hint">View Collection &rarr;</span>
-                </div>
+        <div class="why-card">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h4>Bulk & Timely Delivery</h4>
+            <p>Reliable production timelines even for large-scale orders.</p>
+        </div>
 
-            </div>
-        </section>
+    </div>
+</section>
+
+<section class="capabilities-section">
+    <p class="capability-intro">Our core uniform manufacturing capabilities</p>
+
+    <div class="capability-block">
+        <div class="capability-text">
+            <h3>School Uniforms</h3>
+            <p>
+                Purpose-built uniforms designed for daily wear, discipline,
+                comfort, and long-term durability for educational institutions.
+            </p>
+            <a href="pages/school-uniforms.html">View details →</a>
+        </div>
+
+        <div class="capability-image">
+            <img src="assets/images/slide1.jpg" alt="School Uniforms">
+        </div>
+    </div>
+
+    <div class="capability-block reverse">
+        <div class="capability-text">
+            <h3>Corporate Uniforms</h3>
+            <p>
+                Professionally tailored uniforms that reinforce brand identity,
+                consistency, and presence across modern workplaces.
+            </p>
+            <a href="pages/corporate-uniforms.html">View details →</a>
+        </div>
+
+        <div class="capability-image">
+            <img src="assets/images/slide4.jpg" alt="Corporate Uniforms">
+        </div>
+    </div>
+</section>
     </main>
 
+<section class="section-divider">
+    <p>Manufacturing uniforms with intent, consistency, and responsibility.</p>
+</section>
 
 
-    <section class="contact-section padded-container">
-        <div class="contact-content">
-            <h2 class="section-title">Get a Custom Quote for Your Uniforms</h2>
-            <p class="section-subtitle">Have questions or ready to place a bulk order? Send us a message, and we'll
-                respond within one business day.</p>
+    <section class="enquiry-section">
+    <div class="enquiry-wrapper">
 
-            <form id="contactForm" action="/api/contact" method="POST">
+        <div class="enquiry-intro">
+            <h2>Business Enquiries</h2>
+            <p>
+                For bulk uniform requirements, institutional tie-ups,
+                or long-term manufacturing partnerships.
+            </p>
 
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="subject">Subject / Uniform Type</label>
-                    <input type="text" id="subject" name="subject"
-                        placeholder="e.g., School Uniforms, Corporate T-shirts" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Your Message / Order Details</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-
-
-
-                <button type="submit" class="cta-button">Send Message</button>
-
-                <div id="form-status-message" class="form-message-container">
-                </div>
-
-            </form>
+            <ul class="enquiry-points">
+                <li>✔ Schools & Educational Institutions</li>
+                <li>✔ Corporate & Industrial Uniforms</li>
+                <li>✔ Custom designs & bulk production</li>
+            </ul>
         </div>
-    </section>
+
+        <form id="contactForm" class="enquiry-form">
+            <div class="form-row">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+
+            <input type="text" name="subject" placeholder="Uniform Type / Organisation" required>
+
+            <textarea name="message" rows="4"
+                placeholder="Briefly describe your requirement"></textarea>
+
+            <button type="submit" class="cta-button">
+                Submit Enquiry
+            </button>
+
+            <div id="form-status-message"></div>
+        </form>
+
+    </div>
+</section>
 
 
 
@@ -183,8 +219,4 @@
     </footer>
     <script src="script.js"></script>
 </body>
-
-</html>
-</body>
-
 </html>

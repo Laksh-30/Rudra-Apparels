@@ -4,159 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rudra Apparels | Our Products</title>
-  
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
     <link rel="stylesheet" href="../style.css">
-
     <link rel="stylesheet" href="products_style.css">
 </head>
+
 <body>
 
-    <header class="main-header">
+<header class="main-header">
+    <div class="brand-logo">
+        <a href="../index.html">
+            <img src="../assets/images/Rudra.png" class="logo-img" alt="Rudra Apparels Logo">
+        </a>
+    </div>
 
-        <div class="brand-logo">
-            <a href="../index.html">
-                <img src="../assets/images/Rudra.png" alt="Rudra Apparels Company Logo" class="logo-img">
-            </a>
-        </div>
+    <nav class="main-nav" id="main-nav">
+        <ul>
+            <li><a href="../index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="products.html" class="nav-link current-page">Products</a></li>
+            <li><a href="more-collection.html" class="nav-link">More Collection</a></li>
+        </ul>
+    </nav>
 
-        <nav class="main-nav" id="main-nav">
-            <ul>
-                <li><a href="../index.html" class="nav-link ">Home</a></li>
-                <li><a href="about.html" class="nav-link">About Us</a></li>
-                <li><a href="products.html" class="nav-link current-page">Products</a></li>
-                <li><a href="more-collection.html" class="nav-link">More Collection</a></li>
-            </ul>
-        </nav>
+    <div class="header-actions">
+        <a href="https://wa.me/c/919892390009" target="_blank" class="cta-button whatsapp-cta">
+            <i class="fab fa-whatsapp"></i> Chat with us
+        </a>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+    </div>
+</header>
 
-        <div class="header-actions">
-            <a href="https://wa.me/c/919892390009" target="_blank" class="cta-button whatsapp-cta">
-                <i class="fab fa-whatsapp"></i> Chat with us
-            </a>
+<main>
 
-            <button class="menu-toggle" id="menu-toggle">
-                ☰ </button>
-        </div>
-    </header>
+    <!-- HERO -->
+    <section class="products-hero-section padded-container">
+        <h1>Our Uniform & Apparel Collections</h1>
+        <p>Professionally crafted uniforms trusted by institutions, corporates and industries.</p>
+    </section>
 
-    <main>
-        <section class="products-hero-section padded-container">
-            <h1>Our Uniform & Apparel Collections</h1>
-            <p>Explore our wide range of custom-designed uniforms for schools, businesses, and organizations.</p>
-        </section>
+    <!-- 🔥 BEST SELLING AUTO CAROUSEL -->
+    <section class="product-collection">
+        <h2 class="collection-title">Best Selling Products</h2>
 
-        <section class="category-grid-container">
+        <div class="product-carousel-horizontal auto-carousel" id="bestSellingCarousel">
 
-            <a href="#school-tshirts" class="category-card-link">
-        <div class="category-card" style="background-image: url('../assets/images/Products/schooltshirt1.jpg');">
-            <h2>School T-Shirts</h2>
-            <span class="cta-link">View Samples</span>
-        </div>
-    </a>
-    
-    <a href="#school-skirts" class="category-card-link">
-        <div class="category-card" style="background-image: url('../assets/images/Products/schoolskirt2.jpg');">
-            <h2>School Skirts</h2>
-            <span class="cta-link">View Samples</span>
-        </div>
-    </a>
-    
-    <a href="#corporate-uniforms" class="category-card-link">
-        <div class="category-card" style="background-image: url('../assets/images/Products/corporatetshirt1.jpg');">
-            <h2>Corporate Uniforms</h2>
-            <span class="cta-link">View Samples</span>
-        </div>
-    </a>
-        </section>
-
-        <section id="school-tshirts" class="product-collection padded-container">
-            <h2 class="collection-title">School T-Shirts Samples</h2>
-            <div class="product-carousel-horizontal">
-                <div class="product-item"><img src="../assets/images/Products/schooltshirt1.jpg" alt="School T-shirt Sample 1"><p>Basic Round Neck</p></div>
-                <div class="product-item"><img src="../assets/images/Products/schooltshirt2.jpg" alt="School T-shirt Sample 2"><p>Polo Collared</p></div>
-                <div class="product-item"><img src="../assets/images/Products/schooltshirt3.jpg" alt="School T-shirt Sample 3"><p>Dry-Fit Sports Tee</p></div>
-                </div>
-        </section>
-
-        <section id="school-skirts" class="product-collection padded-container">
-            <h2 class="collection-title">School Skirts Samples</h2>
-            <div class="product-carousel-horizontal">
-                <div class="product-item"><img src="../assets/images/Products/schoolskirt1.jpg" alt="School Skirt Sample 1"><p>Formal Half-Sleeve</p></div>
-                <div class="product-item"><img src="../assets/images/Products/schoolskirt2.jpg" alt="School Skirt Sample 2"><p>Long-Sleeve Pinpoint</p></div>
-                <div class="product-item"><img src="../assets/images/Products/schoolskirt3.jpg" alt="School Skirt Sample 2"><p>Long-Sleeve Pinpoint</p></div>
-                </div>
-        </section>
-
-        <section id="corporate-uniforms" class="product-collection padded-container">
-            <h2 class="collection-title">Corporate Uniform Samples</h2>
-            <div class="product-carousel-horizontal">
-                <div class="product-item"><img src="../assets/images/Products/corporatetshirt1.jpg" alt="Corporate Polo"><p>Executive Polo Shirt</p></div>
-                <div class="product-item"><img src="../assets/images/Products/corporatetshirt2.jpg" alt="Corporate Jacket"><p>Branded Windbreaker</p></div>
-                <div class="product-item"><img src="../assets/images/Products/corporatetshirt3.jpg" alt="Corporate Jacket"><p>Branded Windbreaker</p></div>
-                <div class="product-item"><img src="../assets/images/Products/corporatetshirt4.jpg" alt="Corporate Jacket"><p>Branded Windbreaker</p></div>
-                </div>
-        </section>
-
-    </main>
-
-    <footer class="main-footer">
-        <div class="footer-container">
-
-            <div class="footer-column footer-brand">
-                <h4 class="footer-heading">Rudra Apparels</h4>
-                <p class="brand-tagline">Quality Uniforms, Designed for Impact.</p>
-
-                <div class="social-links">
-                    <a href="https://www.instagram.com/rudra_apparel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                        target="_blank" class="social-icon-link instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/people/Jaikey-Garment/100088310345879/?mibextid=LQQJ4d"
-                        target="_blank" class="social-icon-link facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://whatsapp.com/channel/[YOUR_CHANNEL_ID_HERE]" target="_blank"
-                        class="cta-button channel-cta">
-                        <i class="fab fa-whatsapp"></i> Join WhatsApp Channel
-                    </a>
-                </div>
+            <div class="product-item">
+                <img src="../assets/images/Products/medical_scrubs.jpg">
+                <p>Medical Scrubs</p>
             </div>
 
-            <div class="footer-column footer-contact">
-                <h4 class="footer-heading">Get in Touch</h4>
+            <div class="product-item">
+                <img src="../assets/images/Products/formal_shirts.jpg">
+                <p>Custom Formal Shirts</p>
+            </div>
 
-                <p>📞 Contact: <span class="editable-content">+91 9892390009</span></p>
-                <p>📧 Email: <span class="editable-content">[EMAIL_ADDRESS_HERE]</span></p>
+            <div class="product-item">
+                <img src="../assets/images/Products/logo_tshirts.jpg">
+                <p>Logo T-Shirts</p>
+            </div>
 
-                <div class="address-block">
-                    <p class="address-text">📍 Address: <span class="editable-content">20,23, Gaurav Industrial Estate,
-                            Bharat Coal Compound, Kale Marg, near Bail Bazar, Kamani,Kurla,
-                            Mumbai 400070,
-                            Maharashtra,
-                            India</span></p>
+            <div class="product-item">
+                <img src="../assets/images/Products/chef_coats.jpg">
+                <p>Chef Coats</p>
+            </div>
 
-                    <a href="https://maps.app.goo.gl/Lz4D5VPJiCZXsrKq6?g_st=ipc" target="_blank"
-                        class="map-button cta-button">
-                        View on Google Maps
-                    </a>
-                </div>
+            <!-- DUPLICATE FOR SMOOTH LOOP -->
+            <div class="product-item">
+                <img src="../assets/images/Products/medical_scrubs.jpg">
+                <p>Medical Scrubs</p>
+            </div>
+
+            <div class="product-item">
+                <img src="../assets/images/Products/formal_shirts.jpg">
+                <p>Custom Formal Shirts</p>
             </div>
 
         </div>
+    </section>
 
-        <div class="footer-bottom">
-            <p>© 2025 Rudra Apparels. All Rights Reserved.</p>
-        </div>
-    </footer>
-    <script src="../script.js"></script>
+    <!-- CATEGORY GRID -->
+    <section class="category-grid-container">
 
-    <script src="products_script.js"></script>
+        <a href="#school-tshirts">
+            <div class="category-card" style="background-image:url('../assets/images/Products/schooltshirt1.jpg')">
+                <h2>School T-Shirts</h2>
+                <span class="cta-link">View Samples</span>
+            </div>
+        </a>
+
+        <a href="#school-skirts">
+            <div class="category-card" style="background-image:url('../assets/images/Products/schoolskirt2.jpg')">
+                <h2>School Skirts</h2>
+                <span class="cta-link">View Samples</span>
+            </div>
+        </a>
+
+        <a href="#corporate-uniforms">
+            <div class="category-card" style="background-image:url('../assets/images/Products/corporatetshirt1.jpg')">
+                <h2>Corporate Uniforms</h2>
+                <span class="cta-link">View Samples</span>
+            </div>
+        </a>
+
+    </section>
+
+</main>
+
+<footer class="main-footer">
+    <div class="footer-bottom">
+        <p>© 2025 Rudra Apparels. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+<script src="products_script.js"></script>
 
 </body>
-
 </html>

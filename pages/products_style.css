@@ -1,137 +1,217 @@
-/* -------------------------------------- */
-/* PRODUCTS PAGE STYLING (Specific)       */
-/* -------------------------------------- */
+/* ================================================= */
+/* PREMIUM PRODUCTS PAGE – LUXURY CATALOG STYLE      */
+/* ================================================= */
 
-/* --- Header Specific Styles for Products Page --- */
-/* If the header is fixed and white, ensure the content below pushes down */
-
+/* ---------- HERO SECTION ---------- */
 .products-hero-section {
     text-align: center;
-    /* Pushes content down past the fixed header height (adjust 90px if your header is taller) */
-    padding-top: 150px; 
-    padding-bottom: 40px;
+    padding-top: 160px;
+    padding-bottom: 70px;
+    background: linear-gradient(to right, #f5f5f5, #ffffff);
 }
 
 .products-hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-dark-gray);
+    margin-bottom: 12px;
+}
+
+.products-hero-section p {
+    font-size: 1.15rem;
+    color: var(--color-mid-gray);
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 
-/* --- Category Grid --- */
+/* ---------- SECTION HEADINGS ---------- */
+.collection-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-dark-gray);
+    margin-bottom: 28px;
+    padding-left: 40px;
+}
 
+
+/* ---------- CATEGORY GRID (BIG BLOCKS) ---------- */
 .category-grid-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 60px 40px;
-    background-color: var(--color-light-gray);
-    flex-wrap: wrap; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 80px 40px;
+    background-color: #fafafa;
 }
 
 .category-card {
-    width: 100%;
-    max-width: 350px;
-    height: 250px;
+    height: 320px;
     background-size: cover;
     background-position: center;
-    background-color: var(--color-dark-gray);
     position: relative;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 20px;
-    color: var(--color-white);
+    border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 25px;
+    color: #fff;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .category-card::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* Dark overlay for text readability */
-    background: rgba(0, 0, 0, 0.4); 
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.15)
+    );
     z-index: 1;
 }
 
-.category-card > * {
-    z-index: 2; /* Bring text and link above the overlay */
+.category-card * {
+    position: relative;
+    z-index: 2;
 }
 
 .category-card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.category-card .cta-link {
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 3px;
 }
 
 .category-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 28px 55px rgba(0,0,0,0.25);
 }
 
-.cta-link {
-    color: var(--color-primary-light); 
-    font-weight: 700;
-    text-decoration: none;
-    border-bottom: 2px solid var(--color-primary-light);
-    padding-bottom: 2px;
-}
 
-/* --- Horizontal Product Carousels --- */
-
+/* ---------- PRODUCT COLLECTION SECTIONS ---------- */
 .product-collection {
-    padding: 60px 0; 
+    padding: 80px 0;
 }
 
-.collection-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    padding-left: 40px; /* Match the padded-container margin */
-}
 
+/* ---------- HORIZONTAL PRODUCT ROW ---------- */
 .product-carousel-horizontal {
     display: flex;
-    overflow-x: scroll; 
-    white-space: nowrap; 
-    padding: 10px 40px; 
-    gap: 20px;
-    /* Hide the scrollbar for a cleaner look */
-    scrollbar-width: none; /* Firefox */
+    gap: 26px;
+    overflow-x: auto;
+    padding: 10px 40px 30px;
+    scrollbar-width: none;
 }
 
 .product-carousel-horizontal::-webkit-scrollbar {
     display: none;
 }
 
+
+/* ---------- PRODUCT CARD ---------- */
 .product-item {
-    flex: 0 0 auto; 
-    width: 200px; 
-    text-align: center;
+    flex: 0 0 auto;
+    width: 240px;
+    transition: transform 0.3s ease;
 }
 
 .product-item img {
     width: 100%;
-    height: 200px;
-    object-fit: cover; 
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .product-item p {
-    font-size: 0.9rem;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
     color: var(--color-dark-gray);
-    white-space: normal; 
+    text-align: center;
+    line-height: 1.4;
 }
 
-/* Media Query for smaller screens */
+.product-item:hover {
+    transform: translateY(-6px);
+}
+
+.product-item:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+
+/* ---------- MOBILE OPTIMIZATION ---------- */
 @media (max-width: 768px) {
-    .product-item {
-        width: 150px; 
+
+    .products-hero-section h1 {
+        font-size: 2.4rem;
     }
+
+    .category-grid-container {
+        padding: 60px 20px;
+        gap: 30px;
+    }
+
+    .category-card {
+        height: 260px;
+    }
+
+    .product-item {
+        width: 180px;
+    }
+
+    .product-item img {
+        height: 200px;
+    }
+
+    .collection-title {
+        padding-left: 20px;
+    }
+}
+
+
+/* ================= AUTO ROTATING CAROUSEL ================= */
+
+.auto-carousel {
+    scroll-behavior: smooth;
+    cursor: grab;
+}
+
+.auto-carousel:active {
+    cursor: grabbing;
+}
+
+/* Soft fade edges (luxury touch) */
+.auto-carousel::before,
+.auto-carousel::after {
+    content: "";
+    position: sticky;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.auto-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.auto-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
 }

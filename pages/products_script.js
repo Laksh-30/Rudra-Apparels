@@ -9,3 +9,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // For now, we will leave this simple.
     console.log("Products page specific scripts loaded.");
 });
+
+const carousel = document.getElementById("bestSellingCarousel");
+
+let scrollAmount = 0;
+let scrollStep = 1;
+let autoScroll;
+
+function startAutoScroll() {
+    autoScroll = setInterval(() => {
+        carousel.scrollLeft += scrollStep;
+        scrollAmount += scrollStep;
+
+        if (scrollAmount >= carousel.scrollWidth / 2) {
+            carousel.scrollLeft = 0;
+            scrollAmount = 0;
+        }
+    }, 20);
+}
+
+function stopAutoScroll() {
+    clearInterval(autoScroll);
+}
+
+carousel.addEventListener("mouseenter", stopAutoScroll);
+carousel.addEventListener("mouseleave", startAutoScroll);
+
+startAutoScroll();
