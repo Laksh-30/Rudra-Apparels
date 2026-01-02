@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rudra Apparels | Our Products</title>
+    <title>Rudra Apparels | Products</title>
 
+    <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
+    <!-- ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- GLOBAL + PRODUCT STYLES -->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="products_style.css">
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="main-header">
     <div class="brand-logo">
         <a href="../index.html">
+            <!-- 🔁 REPLACE LOGO HERE -->
             <img src="../assets/images/Rudra.png" class="logo-img" alt="Rudra Apparels Logo">
         </a>
     </div>
@@ -28,7 +34,6 @@
             <li><a href="../index.html" class="nav-link">Home</a></li>
             <li><a href="about.html" class="nav-link">About Us</a></li>
             <li><a href="products.html" class="nav-link current-page">Products</a></li>
-            <li><a href="more-collection.html" class="nav-link">More Collection</a></li>
         </ul>
     </nav>
 
@@ -42,80 +47,180 @@
 
 <main>
 
-    <!-- HERO -->
-    <section class="products-hero-section padded-container">
-        <h1>Our Uniform & Apparel Collections</h1>
-        <p>Professionally crafted uniforms trusted by institutions, corporates and industries.</p>
-    </section>
+<!-- ================= HERO ================= -->
+<section class="products-hero-section padded-container">
+    <h1>Our Uniform & Apparel Collections</h1>
+    <p>Professionally crafted uniforms and lifestyle apparel trusted by institutions, corporates, and retailers.</p>
+</section>
 
-    <!-- 🔥 BEST SELLING AUTO CAROUSEL -->
-    <section class="product-collection">
-        <h2 class="collection-title">Best Selling Products</h2>
+<!-- ================= BEST SELLING (AUTO CAROUSEL) ================= -->
+<section class="product-collection">
+    <h2 class="collection-title">Best Selling Products</h2>
 
-        <div class="product-carousel-horizontal auto-carousel" id="bestSellingCarousel">
+    <div class="product-carousel-horizontal auto-carousel" id="bestSellingCarousel">
 
-            <div class="product-item">
-                <img src="../assets/images/Products/medical_scrubs.jpg">
-                <p>Medical Scrubs</p>
-            </div>
-
-            <div class="product-item">
-                <img src="../assets/images/Products/formal_shirts.jpg">
-                <p>Custom Formal Shirts</p>
-            </div>
-
-            <div class="product-item">
-                <img src="../assets/images/Products/logo_tshirts.jpg">
-                <p>Logo T-Shirts</p>
-            </div>
-
-            <div class="product-item">
-                <img src="../assets/images/Products/chef_coats.jpg">
-                <p>Chef Coats</p>
-            </div>
-
-            <!-- DUPLICATE FOR SMOOTH LOOP -->
-            <div class="product-item">
-                <img src="../assets/images/Products/medical_scrubs.jpg">
-                <p>Medical Scrubs</p>
-            </div>
-
-            <div class="product-item">
-                <img src="../assets/images/Products/formal_shirts.jpg">
-                <p>Custom Formal Shirts</p>
-            </div>
-
+        <!-- 🔁 EDIT IMAGES / NAMES -->
+        <div class="product-item">
+            <img src="../assets/images/Products/medical_scrubs.jpg">
+            <p>Medical Scrubs</p>
         </div>
-    </section>
 
-    <!-- CATEGORY GRID -->
-    <section class="category-grid-container">
+        <div class="product-item">
+            <img src="../assets/images/Products/formal_shirts.jpg">
+            <p>Custom Formal Shirts</p>
+        </div>
 
-        <a href="#school-tshirts">
-            <div class="category-card" style="background-image:url('../assets/images/Products/schooltshirt1.jpg')">
-                <h2>School T-Shirts</h2>
-                <span class="cta-link">View Samples</span>
-            </div>
-        </a>
+        <div class="product-item">
+            <img src="../assets/images/Products/logo_tshirts.jpg">
+            <p>Logo T-Shirts</p>
+        </div>
 
-        <a href="#school-skirts">
-            <div class="category-card" style="background-image:url('../assets/images/Products/schoolskirt2.jpg')">
-                <h2>School Skirts</h2>
-                <span class="cta-link">View Samples</span>
-            </div>
-        </a>
+        <div class="product-item">
+            <img src="../assets/images/Products/chef_coats.jpg">
+            <p>Chef Coats</p>
+        </div>
 
-        <a href="#corporate-uniforms">
-            <div class="category-card" style="background-image:url('../assets/images/Products/corporatetshirt1.jpg')">
-                <h2>Corporate Uniforms</h2>
-                <span class="cta-link">View Samples</span>
-            </div>
-        </a>
+        <!-- DUPLICATE ITEMS FOR SMOOTH LOOP -->
+        <div class="product-item">
+            <img src="../assets/images/Products/medical_scrubs.jpg">
+            <p>Medical Scrubs</p>
+        </div>
 
-    </section>
+        <div class="product-item">
+            <img src="../assets/images/Products/formal_shirts.jpg">
+            <p>Custom Formal Shirts</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= CORE UNIFORM CATEGORIES ================= -->
+<section class="category-grid-container">
+
+    <a href="#school-tshirts">
+        <div class="category-card" style="background-image:url('../assets/images/Products/schooltshirt1.jpg')">
+            <h2>School T-Shirts</h2>
+            <span class="cta-link">View Samples</span>
+        </div>
+    </a>
+
+    <a href="#school-skirts">
+        <div class="category-card" style="background-image:url('../assets/images/Products/schoolskirt2.jpg')">
+            <h2>School Skirts</h2>
+            <span class="cta-link">View Samples</span>
+        </div>
+    </a>
+
+    <a href="#corporate-uniforms">
+        <div class="category-card" style="background-image:url('../assets/images/Products/corporatetshirt1.jpg')">
+            <h2>Corporate Uniforms</h2>
+            <span class="cta-link">View Samples</span>
+        </div>
+    </a>
+
+</section>
+
+<!-- ================= MORE COLLECTION INTRO ================= -->
+<section class="products-hero-section padded-container">
+    <h1>More Apparel Collections</h1>
+    <p>Casualwear, sportswear and lifestyle products manufactured with the same precision.</p>
+</section>
+
+<!-- ================= CASUAL / LIFESTYLE CATEGORIES ================= -->
+<section class="category-grid-container">
+
+    <!-- STREETWEAR -->
+    <a href="#streetwear">
+        <div class="category-card" style="background-image:url('../assets/images/MoreCollection/streetwear1.png')">
+            <h2>Streetwear</h2>
+            <span class="cta-link">View Styles</span>
+        </div>
+    </a>
+
+    <!-- JERSEYS -->
+    <a href="#jerseys">
+        <div class="category-card" style="background-image:url('../assets/images/MoreCollection/jersey1.png')">
+            <h2>Sports Jerseys</h2>
+            <span class="cta-link">View Styles</span>
+        </div>
+    </a>
+
+    <!-- BOXERS -->
+    <a href="#boxer-shorts">
+        <div class="category-card" style="background-image:url('../assets/images/MoreCollection/boxer1.png')">
+            <h2>Boxer Shorts</h2>
+            <span class="cta-link">View Styles</span>
+        </div>
+    </a>
+
+    <!-- TRACKPANTS -->
+    <a href="#trackpants">
+        <div class="category-card" style="background-image:url('../assets/images/MoreCollection/trackpant1.png')">
+            <h2>Trackpants</h2>
+            <span class="cta-link">View Styles</span>
+        </div>
+    </a>
+
+    <!-- BERMUDAS -->
+    <a href="#bermudas">
+        <div class="category-card" style="background-image:url('../assets/images/MoreCollection/bermuda1.png')">
+            <h2>Checks Bermudas</h2>
+            <span class="cta-link">View Styles</span>
+        </div>
+    </a>
+
+</section>
+
+<!-- ================= PRODUCT SECTIONS ================= -->
+
+<section id="streetwear" class="product-collection padded-container">
+    <h2 class="collection-title">Streetwear Clothing</h2>
+    <div class="product-grid">
+        <div class="product-item"><img src="../assets/images/MoreCollection/streetwear1.png"><p>Oversized T-shirt</p></div>
+        <div class="product-item"><img src="../assets/images/MoreCollection/streetwear2.png"><p>Branded Hoodie</p></div>
+        <div class="product-item"><img src="../assets/images/MoreCollection/streetwear3.png"><p>Graphic Tee</p></div>
+    </div>
+</section>
+
+<section id="jerseys" class="product-collection padded-container">
+    <h2 class="collection-title">Sports Jerseys</h2>
+    <div class="product-grid">
+        <div class="product-item"><img src="../assets/images/MoreCollection/jersey1.png"><p>Basketball Jersey</p></div>
+        <div class="product-item"><img src="../assets/images/MoreCollection/jersey2.png"><p>Football Dry-Fit</p></div>
+        <div class="product-item"><img src="../assets/images/MoreCollection/jersey3.png"><p>Cricket Polo</p></div>
+    </div>
+</section>
+
+<section id="boxer-shorts" class="product-collection padded-container">
+    <h2 class="collection-title">Boxer Shorts</h2>
+    <div class="product-grid">
+        <div class="product-item"><img src="../assets/images/MoreCollection/boxer1.png"><p>Checked Cotton Boxer</p></div>
+        <div class="product-item"><img src="../assets/images/MoreCollection/boxer2.png"><p>Printed Lounge Boxer</p></div>
+        <div class="product-item"><img src="../assets/images/MoreCollection/boxer3.png"><p>Solid Color Boxer</p></div>
+    </div>
+</section>
+
+<section id="trackpants" class="product-collection padded-container">
+    <h2 class="collection-title">Trackpants</h2>
+    <div class="product-grid">
+        <div class="product-item"><img src="../assets/images/MoreCollection/trackpant1.png"><p>Cuffed Trackpant</p></div>
+        <div class="product-item"><img src="../assets/images/MoreCollection/trackpant2.png"><p>Gym Trackpant</p></div>
+        <div class="product-item"><img src="../assets/images/MoreCollection/trackpant3.png"><p>Open Bottom Trackpant</p></div>
+    </div>
+</section>
+
+<section id="bermudas" class="product-collection padded-container">
+    <h2 class="collection-title">Checks Bermudas</h2>
+    <div class="product-grid">
+        <div class="product-item"><img src="../assets/images/MoreCollection/bermuda1.png"><p>Classic Check</p></div>
+        <div class="product-item"><img src="../assets/images/MoreCollection/bermuda2.png"><p>Woven Check</p></div>
+        <div class="product-item"><img src="../assets/images/MoreCollection/bermuda3.png"><p>Lounge Check</p></div>
+    </div>
+</section>
 
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer class="main-footer">
     <div class="footer-bottom">
         <p>© 2025 Rudra Apparels. All Rights Reserved.</p>
