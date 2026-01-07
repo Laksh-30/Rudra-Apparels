@@ -38,8 +38,11 @@
                 <i class="fab fa-whatsapp"></i> Chat with us
             </a>
 
-            <button class="menu-toggle" id="menu-toggle">
-                &#9776; </button>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                <span></span> 
+                <span></span> 
+                <span></span> 
+            </button>
         </div>
     </header>
     <main>
@@ -49,9 +52,10 @@
                 <p>As leading manufacturers, we deliver premium, durable apparel for schools, corporate teams, and
                     professional institutions across the region.</p>
 
-                <a href="pages/contact.html" class="cta-button hero-cta">Request a Custom Quote</a>
+                <a href="#contactForm" class="cta-button hero-cta" data-target="contactForm">Request a Custom Quote</a>
             </div>
         </section>
+
         <section class="why-us-section">
     <h3 class="section-title">Why Choose Rudra Apparels</h3>
     <div class="why-us-grid">
@@ -93,12 +97,19 @@
                 Purpose-built uniforms designed for daily wear, discipline,
                 comfort, and long-term durability for educational institutions.
             </p>
-            <a href="pages/school-uniforms.html">View details →</a>
+            <a href="pages/products.html">View details →</a>
         </div>
 
         <div class="capability-image">
-            <img src="assets/images/slide1.jpg" alt="School Uniforms">
-        </div>
+    <div class="image-slider" data-slider>
+        <img src="assets/images/uniforms 1/uniform-1 (12).jpg" class="active">
+        <img src="assets/images/uniforms 1/uniform-1 (13).jpg">
+        <img src="assets/images/uniforms 1/uniform-1 (14).jpg">
+        <img src="assets/images/uniforms 1/uniform-1 (7).jpg">
+        <!-- add unlimited images here -->
+    </div>
+</div>
+
     </div>
 
     <div class="capability-block reverse">
@@ -108,12 +119,18 @@
                 Professionally tailored uniforms that reinforce brand identity,
                 consistency, and presence across modern workplaces.
             </p>
-            <a href="pages/corporate-uniforms.html">View details →</a>
+            <a href="pages/products.html">View details →</a>
         </div>
 
         <div class="capability-image">
-            <img src="assets/images/slide4.jpg" alt="Corporate Uniforms">
-        </div>
+    <div class="image-slider" data-slider>
+        <img src="assets/images/pending.png" class="active">
+        <!-- <img src="assets/images/slide5.jpg">
+        <img src="assets/images/slide6.jpg"> -->
+        <!-- add unlimited images here -->
+    </div>
+</div>
+
     </div>
 </section>
     </main>

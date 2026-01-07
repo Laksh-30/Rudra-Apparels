@@ -1,38 +1,46 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // This script file can be used for any Products page-specific interactivity 
-    // that the global script doesn't cover (e.g., product lightboxes, filters).
+document.addEventListener("DOMContentLoaded", () => {
+  const sliders = document.querySelectorAll(".card-slider");
 
-    // Since the header menu logic is in ../script.js, ensure you don't duplicate it here.
-    // The main-header, menu-toggle, and main-nav IDs in your HTML are correctly set 
-    // to be found by the global script.
-    
-    // For now, we will leave this simple.
-    console.log("Products page specific scripts loaded.");
+  sliders.forEach(slider => {
+    const images = slider.querySelectorAll("img");
+    let currentIndex = 0;
+
+    if (images.length <= 1) return;
+
+    setInterval(() => {
+      images[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add("active");
+    }, 3000);
+  });
 });
 
-const carousel = document.getElementById("bestSellingCarousel");
 
-let scrollAmount = 0;
-let scrollStep = 1;
-let autoScroll;
+document.addEventListener("click", (e) => {
+  const card = e.target.closest(".product-card");
 
-function startAutoScroll() {
-    autoScroll = setInterval(() => {
-        carousel.scrollLeft += scrollStep;
-        scrollAmount += scrollStep;
+  // Close all cards when clicking outside
+  document.querySelectorAll(".product-card.active").forEach(c => {
+    if (c !== card) c.classList.remove("active");
+  });
 
-        if (scrollAmount >= carousel.scrollWidth / 2) {
-            carousel.scrollLeft = 0;
-            scrollAmount = 0;
-        }
-    }, 20);
-}
+  if (!card) return;
 
-function stopAutoScroll() {
-    clearInterval(autoScroll);
-}
+  card.classList.toggle("active");
+});
 
-carousel.addEventListener("mouseenter", stopAutoScroll);
-carousel.addEventListener("mouseleave", startAutoScroll);
 
-startAutoScroll();
+// document.querySelectorAll('.category-card[href^="#"]').forEach(card => {
+//   card.addEventListener("click", e => {
+//     const targetId = card.getAttribute("href").slice(1);
+//     const target = document.getElementById(targetId);
+//     if (!target) return;
+
+//     e.preventDefault();
+
+//     const headerOffset = document.querySelector(".main-header")?.offsetHeight || 80;
+//     const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+//     window.scrollTo({ top: y, behavior: "smooth" });
+//   });
+// });

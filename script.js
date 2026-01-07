@@ -149,3 +149,74 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 }); // End of DOMContentLoaded (KEEP THIS)
+
+
+// ===== SMOOTH PAGE TRANSITION =====
+document.querySelectorAll('a[href]').forEach(link => {
+    const url = link.getAttribute('href');
+
+    // Ignore external links, anchors, new tabs
+    if (
+        !url ||
+        url.startsWith('#') ||
+        url.startsWith('http') ||
+        link.target === '_blank'
+    ) return;
+
+    link.addEventListener('click', e => {
+        e.preventDefault();
+
+        document.body.classList.add('fade-out');
+
+        setTimeout(() => {
+            window.location.href = url;
+        }, 300); // must match CSS transition
+    });
+});
+
+// Ensure fade-in on page load
+window.addEventListener('pageshow', () => {
+    document.body.classList.remove('fade-out');
+});
+
+// Page fade-in on load
+window.addEventListener("load", () => {
+    document.body.classList.add("page-loaded");
+});
+
+// Page fade-out before navigation
+document.querySelectorAll("a[href]").forEach(link => {
+    const url = link.getAttribute("href");
+
+    // Only internal links
+    if (url && !url.startsWith("#") && !url.startsWith("http")) {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            document.body.classList.remove("page-loaded");
+
+            setTimeout(() => {
+                window.location.href = url;
+            }, 250);
+        });
+    }
+});
+
+const menuToggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("main-nav");
+
+menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    nav.classList.toggle("nav-open");
+});
+
+
+document.querySelectorAll('[data-slider]').forEach(slider => {
+    const images = slider.querySelectorAll('img');
+    let index = 0;
+
+    setInterval(() => {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+    }, 3500); // change speed if needed
+});
